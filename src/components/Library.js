@@ -1,8 +1,17 @@
 import React, {useState, useEffect} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import axios from '../axios';
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+  }));
 
-const Library = () => {
+export default function Library() {
+    const classes = useStyles();
+
     const [people, setPeople] = useState([]);
 
     useEffect(()=> {
@@ -14,14 +23,12 @@ const Library = () => {
     },[]);
     console.log(people);
     return (
-        <div>
+        <Grid container spacing={2} className={classes.root}>
             {people.map((data)=> {
                 return (
-                    <p>{data.name}</p>
+                    <Grid item xs={3}><p>{data.name}</p></Grid>
                 )
             })}
-        </div>
+        </Grid>
     );
 }
-
-export default Library;
