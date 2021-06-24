@@ -25,7 +25,7 @@ export default function Library() {
     }, []);
     console.log(people);
     return (
-        <Grid container spacing={2} className={classes.root}>
+        <Grid container spacing={4} className={classes.root}>
             {people.map((data) => {
                 return (
                     <Grid item xs={3}><ProfileCard name={data.name} /></Grid>
