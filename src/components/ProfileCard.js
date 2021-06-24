@@ -5,6 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { Avatar } from 'react-avataaars';
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         cursor: 'pointer',
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function ProfileCard({ name }) {
+export default function ProfileCard({ name, onClick }) {
     const classes = useStyles();
     const hash = 'random-string';
     const options = {
@@ -43,7 +44,7 @@ export default function ProfileCard({ name }) {
       style: 'circle',
     };
     return (
-        <Card className={classes.root} elevation={3}>
+        <Card className={classes.root} elevation={3} onClick={onClick}>
             <div className={classes.avatarWrapper}>
                 <Avatar className="avatar" options={options} hash={hash} />
             </div>
